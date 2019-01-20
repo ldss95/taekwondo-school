@@ -1,0 +1,29 @@
+{
+  "name": "colegio_basilio",
+  "version": "1.0.0",
+  "description": "Aplicacion web para la gestion del colegio de Taekwondo de Basilio, la app tambian sera un portal web desde donde los padres podran dar un seguimiento a l avance de sus hijos y registrar sus pagos.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "run": "src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ldss95/colegio_taekwondo.git"
+  },
+  "author": "BINAR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ldss95/colegio_taekwondo/issues"
+  },
+  "homepage": "https://github.com/ldss95/colegio_taekwondo#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  }
+}
