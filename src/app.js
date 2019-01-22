@@ -1,19 +1,22 @@
 const express = require('express')
+const path = require('path')
 const bodyParser = require('body-parser')
 const app = express()
 const api = require('./routes/')
-const mysql = require('mysql')
-const myConneciont = require('express-myconnection')
+const hbs = require('express-handlebars')
 
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json())
+app.engine('.hbs', hbs({
+    defaultLayout: 'default',
+    extname: '.hbs',
+    layoutsDir: path.join(__dirname, 'views/layouts')
+}))
+app.set('view engine', '.hbs')
+app.set('views', path.join(__dirname, 'views'))
+app.get('/', (req, res) => {
+    res.render('landing')
+})
 app.use('/api', api)
-app.use(myConneciont(mysql, {
-    host: 'localhost',
-    user: 'root',
-    password: '123456',
-    port: 3306,
-    database: 'taekwondo'
-}, 'single'))
 
 module.exports = app
