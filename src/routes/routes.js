@@ -1,6 +1,4 @@
 const express = require('express')
-const path = require('path')
-const alumno = require('../controllers/alumno')
 const pago = require('../controllers/pago')
 const router = express.Router()
 
@@ -8,16 +6,31 @@ router.get('/', (req, res) => {
     res.render('home')
 })
 
-//Rutas para los alumnos
-router.get('/API/alumno/:id', alumno.get)
-router.get('/API/alumnos', alumno.gets)
-router.post('/API/alumo', alumno.crear)
-router.put('/API/alumno', alumno.actualizar)
-router.delete('/API/alumno/:id', alumno.eliminar)
+router.get('/login', (req, res) => {
+    res.render('login')
+})
 
-//Rutas para los pagos
-router.get('/API/pago/:id', pago.getPago)
-router.get('/API/pagos', pago.getPagos)
+router.get('/consultas', (req, res) => {
+    res.render('consultas')
+})
+
+router.get('/sobre_nosotros', (req, res) => {
+    res.render('nosotros')
+})
+
+router.get('/videos', (req, res) => {
+    res.render('videos')
+})
+
+router.get('/eventos', (req, res) => {
+    res.render('eventos')
+})
+
+router.get('/inscripcion', (req, res) => {
+    res.render('inscripcion')
+})
+
+router.use('/API', require('./api'))
 
 //En caso de no existir la ruta
 /*

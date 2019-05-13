@@ -1,11 +1,25 @@
 <header id="main_menu">
-    <ul id="desktop" class=".d-none .d-sm-block">
-        <li><a href="/" class="active">INICIO</a></li>
-        <li><a href="/sobre_nosotros">SOBRE NOSOTROS</a></li>
-        <li><a href="/videos">VIDEOS</a></li>
-        <li><a href="/eventos">EVENTOS</a></li>
-        <li><a href="/consultas">CONSULTAS</a></li>
-        <li><a href="/ingresos">INGRESOS</a></li>
-        <li><a href="/inscripcion">INSCRIPCION</a></li>
-    </ul>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <!--
+            <a class="navbar-brand" v-text="usuario.nombre"></a>
+            -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li><a class="nav-link" href="/" :class="{ active: page == 'inicio' }">INICIO</a></li>
+                    <li><a class="nav-link" href="/sobre_nosotros" :class="{ active: page == 'nosotros' }">SOBRE NOSOTROS</a></li>
+                    <li><a class="nav-link" href="/videos" :class="{ active: page == 'videos' }">VIDEOS</a></li>
+                    <li><a class="nav-link" href="/eventos" :class="{ active: page == 'eventos' }">EVENTOS</a></li>
+                    <li><a class="nav-link" href="/consultas" :class="{ active: page == 'consultas' }">CONSULTAS</a></li>
+                    <li><a class="nav-link" href="/login" :class="{ active: page == 'login' }">INGRESOS</a></li>
+                    <li><a class="nav-link" href="/inscripcion" :class="{ active: page == 'inscripcion' }">INSCRIPCION</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 </header>

@@ -1,0 +1,56 @@
+<div id="app">
+    {{> header }}
+
+    <div class="container">
+        <br>
+        <h2 class="text-center" v-if="eventos.length > 0">Proximos Eventos</h2>
+        <br>
+
+        <div class="row">
+            <div class="col-12 col-md-4" v-for="evento in eventos">
+                <div class="evento">
+                    <header>
+                        <h3 class="text-center" v-text="evento.nombre"></h3>
+                    </header>
+                    <div class="body" :style="{backgroundImage: 'url(/images/eventos/' + evento.id + '.jpg)'}">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <h2 class="text-center" v-if="noticias.length > 1">Noticias</h2>
+        <br>
+
+        <div class="row">
+
+        </div>
+    </div>
+    <br><br>
+
+    {{> footer }}
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            page: 'eventos',
+            eventos: [],
+            noticias: []
+        },
+        mounted(){
+            axios.get('/API/eventos')
+            .then(res => {
+                let now = new Date()
+                let fecha = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`
+                res.data.forEach(evento => {
+                    if(new Date(evento.fecha) > now)
+                        this.eventos.push(evento)
+                })
+            }).catch(error => {
+                console.error(error)
+            })
+        }
+    })
+</script>

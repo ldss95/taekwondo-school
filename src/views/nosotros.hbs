@@ -1,0 +1,91 @@
+<div id="app">
+    {{> header }}
+
+    <div class="container">
+        <br>
+        <h2 class="text-center" v-if="quienes_somos">Quienes Somos</h2>
+        <p v-text="quienes_somos"></p>
+        <br>
+
+        <h2 class="text-center" v-if="team.length > 0">Nuestro Equipo</h2>
+        <br>
+        <div class="row">
+            <div class="col-12 col-md-6" v-for="persona in team">
+                <div class="persona">
+                    <div class="foto" :style="{backgroundImage: 'url(/images/team/' + persona.id + '.jpg)'}">
+
+                    </div>
+                    <div class="detalles">
+                        <h4 v-text="persona.nombre"></h4>
+                        <p v-text="persona.cargo"></p>
+                        <ul>
+                            <li>
+                                <a href="#" class="fa fa-facebook" target="_blank"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-instagram" target="_blank"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-youtube" target="_blank"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <br>
+
+        <h2 class="text-center" v-if="mision">Mision</h2>
+        <p v-text="mision"></p>
+        <br>
+
+        <h2 class="text-center" v-if="vision">Vision</h2>
+        <p v-text="vision"></p>
+        <br>
+
+        <h2 class="text-center" v-if="valores">Valores</h2>
+        <p v-text="valores"></p>
+        <br>
+
+    </div>
+
+    <br><br>
+
+    {{> footer}}
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            page: 'nosotros',
+            quienes_somos: '',
+            mision: '',
+            vision: '',
+            valores: '',
+            team: []
+        },
+        mounted(){
+            axios.get('/API/articulos')
+            .then(res => {
+                if(res.status == 200){
+                    this.quienes_somos = res.data[0].texto
+                    this.mision = res.data[1].texto
+                    this.vision = res.data[2].texto
+                    this.valores = res.data[3].texto
+                }
+            }).catch(error => {
+                console.error(error)
+            })
+
+            axios.get('/API/team')
+            .then(res => {
+                if(res.status == 200){
+                    this.team = res.data
+                }
+            }).catch(error => {
+                console.error(error)
+            })
+        }
+    })
+</script>
