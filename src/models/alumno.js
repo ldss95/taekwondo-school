@@ -1,9 +1,8 @@
 const db = require('./conexion')
-
 let modelo = {}
 
 modelo.get = (id, callback) => {
-    db.query(`SELECT * FROM alumnos WHERE id = ${id}`, (error, row) => {
+    db.query('SELECT * FROM alumnos WHERE id = ?', [id], (error, row) => {
         callback(null, (error) ? error.sqlMessage: row)
     })
 }
@@ -14,9 +13,9 @@ modelo.gets = (callback) => {
     })
 }
 
-modelo.crear = (datos, callback) => {
-    db.query(`INSERT INTO alumnos (imagen, nombres, apellidos, fecha_nacimiento, padre) VALUES ('${datos.imagen}', '${datos.nombres}', '${datos.apellidos}', '${datos.fecha_nacimiento}', '${datos.padre}')`, (error, row) => {
-        callback(null, (error) ? error.sqlMessage: row)
+modelo.crear = (alumno, callback) => {
+    db.query('INSERT INTO alumnos SET ?', alumno, (error, result) => {
+        callback(null, (error) ? error.sqlMessage: result)
     })
 }
 
@@ -25,7 +24,7 @@ modelo.actualizar = (datos, callback) => {
 }
 
 modelo.eliminar = (id, callback) => {
-    db.query(`DELETE FROM alumnos WHERE id = ${id}`, (error, row) => {
+    db.query('DELETE FROM alumnos WHERE id = ?', [id], (error, row) => {
         callback(
             null, 
             (error) 

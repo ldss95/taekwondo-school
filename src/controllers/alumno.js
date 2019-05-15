@@ -1,10 +1,11 @@
 const Modelo = require('../models/alumno')
+const Controlador = {}
 
-function getAlumno(req, res){
+Controlador.getAlumno = (req, res) => {
     res.status(200).send('Todo esta funcionando bien')
 }
 
-function get(req, res){
+Controlador.get = (req, res) => {
     Modelo.get(req.params.id, (error, row) => {
         if(error){
             res.status(500).send(error)
@@ -14,7 +15,7 @@ function get(req, res){
     })
 }
 
-function gets(req, res){
+Controlador.gets = (req, res) => {
     Modelo.gets((error, rows) => {
         if(error){
             res.status(500).send(error)
@@ -24,8 +25,25 @@ function gets(req, res){
     })
 }
 
-function crear(req, res){
-    Modelo.creat(req.body, (error, row) => {
+Controlador.crear = (req, res) => {
+    let alumno = {
+        id: null,
+        fecha_inscripcion: null,
+        nombres: req.body.nombres,
+        apellidos: req.body.apellidos,
+        fecha_nacimiento: req.body.fecha_nacimiento,
+        genero: req.body.genero,
+        tipo: req.body.tipo,
+        clase: req.body.clase,
+        cinturon: req.body.cinturon,
+        padre: req.body.padre,
+        mayores: req.body.mayores,
+        observacion: req.body.observacion,
+        referencia: req.body.referencia,
+        foto: req.body.foto
+    }
+
+    Modelo.crear(alumno, (error, row) => {
         if(error){
             res.status(500).send(error)
         }else{
@@ -34,11 +52,11 @@ function crear(req, res){
     })
 }
 
-function actualizar(req, res){
+Controlador.actualizar = (req, res) => {
 
 }
 
-function eliminar(req, res){
+Controlador.eliminar = (req, res) => {
     Modelo.eliminar(req.params.id, (error, row) => {
         if(error){
             res.status(500).send(error)
@@ -48,10 +66,4 @@ function eliminar(req, res){
     })
 }
 
-module.exports = {
-    get,
-    gets,
-    actualizar,
-    eliminar,
-    crear
-}
+module.exports = Controlador
