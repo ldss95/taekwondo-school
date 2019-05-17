@@ -32,58 +32,26 @@
         <h2 class="text-center">Cursos</h2>
         <br>
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-0" v-for="curso in cursos">
                 <div class="curso">
-                    <div class="img">
+                    <div class="row">
+                        <div class="col-12 col-lg-4" style="display:flex; align-items: center;">
+                             <div class="img" :style="{backgroundImage: 'url(' + curso.imagen + ')'}">
 
-                    </div>
-                    <div class="detalles">
-                        <h6 class="titulo">ABCDFG!</h6>
-                        <p>
-                            asldnfsa sdkjf asdfkj asdfsakj asdfj asdkjf asdfja sdfj sadkfj asdkfj askdjf askdjf aksdjf askdjf askdjf askdjf 
-                        </p>
-                    </div>
-                </div>
-            </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-12 col-lg-8">
+                            <div class="detalles">
+                                <h6 class="titulo text-center" v-text="curso.nombre"></h6>
+                                <p v-text="curso.descripcion"></p>
 
-            <div class="col-12 col-md-6">
-                <div class="curso">
-                    <div class="img">
-
-                    </div>
-                    <div class="detalles">
-                        <h6 class="titulo">ABCDFG!</h6>
-                        <p>
-                            asldnfsa sdkjf asdfkj asdfsakj asdfj asdkjf asdfja sdfj sadkfj asdkfj askdjf askdjf aksdjf askdjf askdjf askdjf 
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="curso">
-                    <div class="img">
-
-                    </div>
-                    <div class="detalles">
-                        <h6 class="titulo">ABCDFG!</h6>
-                        <p>
-                            asldnfsa sdkjf asdfkj asdfsakj asdfj asdkjf asdfja sdfj sadkfj asdkfj askdjf askdjf aksdjf askdjf askdjf askdjf 
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="curso">
-                    <div class="img">
-
-                    </div>
-                    <div class="detalles">
-                        <h6 class="titulo">ABCDFG!</h6>
-                        <p>
-                            asldnfsa sdkjf asdfkj asdfsakj asdfj asdkjf asdfja sdfj sadkfj asdkfj askdjf askdjf aksdjf askdjf askdjf askdjf 
-                        </p>
+                                <div class="text-center">
+                                <button class="btn btn-secondary">Mas detalles</button>
+                                <button class="btn btn-primary">Inscribete</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,35 +80,53 @@
 
         <div id="contact_form">
             <h2 class="text-center">Contactanos</h2>
+            <br>
+
             <form>
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="">Nombre</label>
-                        <input type="text" class="form-control" required>
+                        <div class="form-group">
+                            <input type="text" id="fc_nombre" class="form-control" placeholder="Nomrbe" required>
+                            <label for="fc_nombre" class="control-label">Nombre</label>
+                        </div>
                         <br>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="">Email</label>
-                        <input type="email" class="form-control" required>
+                        <div class="form-group">
+                            <input type="email" id="fc_email" class="form-control" placeholder="Email" required>
+                            <label for="fc_email">Email</label>
+                        </div>
                         <br>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="">Asunto</label>
-                        <input type="text" class="form-control">
+                        <div class="form-group">
+                            <input type="text" id="fc_asunto" class="form-control" placeholder="Asunto">
+                            <label for="fc_asunto">Asunto</label>
+                        </div>
                         <br>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="">Telefono</label>
-                        <input type="number" class="form-control">
+                        <div class="form-group">
+                            <input type="number" id="fc_tel" class="form-control" placeholder="Telefono" min="8090000001">
+                            <label for="fc_tel">Telefono</label>
+                        </div>
                         <br>
                     </div>
 
                     <div class="col-12">
-                        <label for="">Mensaje</label>
-                        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                        <div class="form-group">
+                            <textarea name="" id="fc_mensaje" cols="30" class="form-control" placeholder="Mensaje"></textarea>
+                            <label for="fc_mensaje">Mensaje</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -154,7 +140,16 @@
     new Vue({
         el: '#app',
         data: {
-            page: 'inicio'
+            page: 'inicio',
+            cursos: []
+        },
+        mounted(){
+            axios.get('/API/cursos')
+            .then(res => {
+                this.cursos = res.data
+            }).catch(error => {
+                console.log(error)
+            })
         }
     })
 </script>
