@@ -95,7 +95,8 @@ header#main_menu {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #fff; }
+  color: #fff;
+  overflow: hidden; }
   #main_video i {
     font-size: 150px;
     cursor: pointer;
@@ -124,9 +125,10 @@ header#main_menu {
   align-items: center; }
   #login_container #login_form {
     background: #fff;
-    padding: 30px 60px;
+    padding: 30px 40px;
     border-radius: 5px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); }
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    max-width: 350px; }
     #login_container #login_form button {
       display: block;
       margin: 0 auto; }
@@ -177,11 +179,28 @@ header#main_menu {
         outline: none; }
 
 .sombra {
-  position: absolute;
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1; }
+  height: 100%; }
+  .sombra.contenido-centrado {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .sombra.vertical {
+    flex-direction: column; }
+  .sombra.absoluta {
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .sombra.s5 {
+    background: rgba(0, 0, 0, 0.5); }
+  .sombra.s4 {
+    background: rgba(0, 0, 0, 0.4); }
+  .sombra.s3 {
+    background: rgba(0, 0, 0, 0.3); }
+  .sombra.s2 {
+    background: rgba(0, 0, 0, 0.2); }
+  .sombra.s1 {
+    background: rgba(0, 0, 0, 0.1); }
 
 .contenido {
   z-index: 2; }
@@ -238,7 +257,7 @@ header#main_menu {
 
 .form-control {
   border: none;
-  border-bottom: solid 2px #000;
+  border-bottom: solid 1px #000;
   border-radius: 0; }
   .form-control:focus {
     outline: none;
