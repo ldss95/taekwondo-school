@@ -29,4 +29,8 @@ app.use(session({
 }))
 app.use(require('./routes/routes'))
 
+/*
+    This is a test of integration slack and GitLab
+*/
+
 module.exports = app
