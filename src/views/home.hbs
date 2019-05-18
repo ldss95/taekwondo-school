@@ -32,33 +32,35 @@
     <br>
 
     <div class="container">
-        <h2 class="text-center">Cursos</h2>
-        <br>
-        <div class="row">
-            <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-0" v-for="curso in cursos">
-                <div class="curso">
-                    <div class="row">
-                        <div class="col-12 col-lg-4" style="display:flex; align-items: center;">
-                             <div class="img" :style="{backgroundImage: 'url(' + curso.imagen + ')'}">
+        <section id="cursos">
+            <h2 class="text-center">Cursos</h2>
+            <br>
+            <div class="row">
+                <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-0" v-for="curso in cursos">
+                    <div class="curso">
+                        <div class="row">
+                            <div class="col-12 col-lg-4" style="display:flex; align-items: center;">
+                                <div class="img" :style="{backgroundImage: 'url(' + curso.imagen + ')'}">
 
+                                </div>
                             </div>
-                        </div>
-                       
-                        <div class="col-12 col-lg-8">
-                            <div class="detalles">
-                                <h6 class="titulo text-center" v-text="curso.nombre"></h6>
-                                <p v-text="curso.descripcion"></p>
+                        
+                            <div class="col-12 col-lg-8">
+                                <div class="detalles">
+                                    <h6 class="titulo text-center" v-text="curso.nombre"></h6>
+                                    <p v-text="curso.descripcion"></p>
 
-                                <div class="text-center">
-                                <button class="btn btn-secondary">Mas detalles</button>
-                                <button class="btn btn-primary">Inscribete</button>
+                                    <div class="text-center">
+                                    <button class="btn btn-secondary">Mas detalles</button>
+                                    <button class="btn btn-primary">Inscribete</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
     <div id="main_video">
