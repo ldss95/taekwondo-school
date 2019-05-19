@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const controller = require('../controllers/articulos')
+const controller = require('../controllers/contactos')
 
-router.get('/', controller.get)
+router.post('/', controller.guardar)
 
 module.exports = router

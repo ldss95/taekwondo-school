@@ -1,8 +1,8 @@
 const model = require('../models/articulos')
 const controller = {}
 
-controller.gets = (req, res) => {
-    model.gets((error, rows) => {
+controller.get = (req, res) => {
+    model.get(parseInt(req.query.id), (error, rows) => {
         if(error)
             res.status(500).send(error)
         else

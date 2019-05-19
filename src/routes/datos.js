@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const controller = require('../controllers/articulos')
+const controller = require('../controllers/datos')
 
 router.get('/', controller.get)
 

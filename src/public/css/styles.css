@@ -1,12 +1,18 @@
 /* 
     Colores
 */
+/*
+    Fondos
+*/
+html {
+  scroll-behavior: smooth; }
+
 body {
   width: 100%; }
 
 header#main_menu {
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: #444;
   padding: 0 15px 15px 15px;
   z-index: 2; }
   header#main_menu .navbar {
@@ -88,9 +94,6 @@ header#main_menu {
 #main_video {
   width: 100%;
   height: 600px;
-  background-image: url("/images/bg-video.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,12 +110,12 @@ header#main_menu {
 
 #contact_form {
   width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
+  height: 100%;
   padding: 15px;
   min-height: 200px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  border-radius: 3px; }
+  border-radius: 3px;
+  margin-bottom: 30px; }
 
 #login_container {
   background: #4250f4;
@@ -232,10 +235,10 @@ header#main_menu {
 .evento {
   height: 350px;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   width: 100%;
   overflow: hidden;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: ease all .3s; }
   .evento header {
     padding: 15px;
     background: #4250f4;
@@ -243,6 +246,8 @@ header#main_menu {
   .evento .body {
     height: calc(100% - 71px);
     background-size: cover; }
+  .evento:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
 
 .form-group label {
   position: absolute;
@@ -255,6 +260,14 @@ header#main_menu {
   top: -10px;
   font-size: 12px; }
 
+.input-group.newsletter .input-group-text {
+  border: 1px solid #4250f4;
+  border-radius: 0 3px 3px 0;
+  color: #fff;
+  background: #4250f4; }
+.input-group input {
+  border: none; }
+
 .form-control {
   border: none;
   border-bottom: solid 1px #000;
@@ -265,11 +278,22 @@ header#main_menu {
 
 footer {
   padding: 30px;
-  background: rgba(0, 0, 0, 0.5);
+  background: #444;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: #fff; }
+  footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 15px; }
+    footer ul li i {
+      margin-right: 15px; }
+    footer ul li a {
+      color: #fff;
+      transition: ease all .3s; }
+      footer ul li a:hover {
+        color: #8a93fc; }
 
 /*# sourceMappingURL=styles.css.map */

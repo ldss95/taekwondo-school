@@ -64,81 +64,98 @@
     </div>
 
     <div id="main_video">
-        <div class="sombra contenido-centrado vertical s5">
-            <i class="fa fa-play-circle"></i>
-            <h3>Ver Video</h3>
-        </div>
+        <iframe width="1907" height="100%" src="https://www.youtube.com/embed/HkAmVkESI1E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     <br>
 
     <div class="container">
-        <h2 class="text-center">Por que practicar taekwondo?</h2>
+        <h2 class="text-center" v-text="articulo.nombre"></h2>
         <br>
-        <p>
-            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-            It has survived not only five centuries, but also the leap into electronic typesetting, 
-            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
-            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
-            PageMaker including versions of Lorem Ipsum.
-        </p>
+        <p v-text="articulo.texto"></p>
         <br>
 
-        <div id="contact_form">
-            <h2 class="text-center">Contactanos</h2>
-            <br>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div id="contact_form">
+                    <h2 class="text-center">Contactanos</h2>
+                    <br>
 
-            <form>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" id="fc_nombre" class="form-control" placeholder="Nomrbe" required>
-                            <label for="fc_nombre" class="control-label">Nombre</label>
-                        </div>
-                        <br>
-                    </div>
+                    <form @submit="contactar">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="nombre" id="fc_nombre" class="form-control" placeholder="Nomrbe" required>
+                                    <label for="fc_nombre" class="control-label">Nombre</label>
+                                </div>
+                                <br>
+                            </div>
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="email" id="fc_email" class="form-control" placeholder="Email" required>
-                            <label for="fc_email">Email</label>
-                        </div>
-                        <br>
-                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" id="fc_email" name="email" class="form-control" placeholder="Email" required>
+                                    <label for="fc_email">Email</label>
+                                </div>
+                                <br>
+                            </div>
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" id="fc_asunto" class="form-control" placeholder="Asunto">
-                            <label for="fc_asunto">Asunto</label>
-                        </div>
-                        <br>
-                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" id="fc_asunto" name="asunto" class="form-control" placeholder="Asunto">
+                                    <label for="fc_asunto">Asunto</label>
+                                </div>
+                                <br>
+                            </div>
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="number" id="fc_tel" class="form-control" placeholder="Telefono" min="8090000001">
-                            <label for="fc_tel">Telefono</label>
-                        </div>
-                        <br>
-                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" id="fc_tel" name="telefono" class="form-control" placeholder="Telefono" min="8090000001">
+                                    <label for="fc_tel">Telefono</label>
+                                </div>
+                                <br>
+                            </div>
 
-                    <div class="col-12">
-                        <div class="form-group">
-                            <textarea name="" id="fc_mensaje" cols="30" class="form-control" placeholder="Mensaje"></textarea>
-                            <label for="fc_mensaje">Mensaje</label>
-                        </div>
-                    </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea id="fc_mensaje" name="mensaje" cols="30" class="form-control" placeholder="Mensaje"></textarea>
+                                    <label for="fc_mensaje">Mensaje</label>
+                                </div>
+                            </div>
 
-                    <div class="col-12">
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <div class="col-12">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">
+                                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                        Enviar
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </form>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="d-block d-md-none">
+                    <br>
+                </div>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21407.121523119422!2d-69.9125073801179!3d18.4709630081977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf89c9763e7b01%3A0xc491c654f9f9ca40!2sJuan+Pablo+Duarte!5e0!3m2!1ses-419!2sdo!4v1558276414399!5m2!1ses-419!2sdo" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    style="border:0" allowfullscreen>
+                </iframe>
+
+                <div class="d-block d-md-none">
+                    <br><br>
+                </div>
+            </div>
         </div>
+
         <br>
+        <br>
+        
     </div>
 
     {{> footer }}
@@ -148,7 +165,34 @@
         el: '#app',
         data: {
             page: 'inicio',
-            cursos: []
+            cursos: [],
+            articulo: {},
+            datos: {}
+        },
+        methods: {
+            contactar(e){
+                e.preventDefault()
+                let loader = e.target.querySelector('button span')
+                loader.classList.remove('d-none')
+                axios.post('/API/contactos', serialize(e.target))
+                .then(res => {
+                    swal.fire(
+                        'Listo',
+                        'Hemos recivido sus datos correctamente, nos pondremos en contacto lo mas pronto posible.',
+                        'success'
+                    )
+                    loader.classList.add('d-none')
+                    e.target.reset()
+                }).catch(error => {
+                    swal.fire(
+                        'Error',
+                        'Ha surgido un error inesperado, por favor intentelo mas tarde.',
+                        'error'
+                    )
+                    console.error(error)
+                    loader.classList.add('d-none')
+                })
+            }
         },
         mounted(){
             axios.get('/API/cursos')
@@ -157,6 +201,26 @@
             }).catch(error => {
                 console.log(error)
             })
+
+            axios.get('/API/articulos', {
+                params: {
+                    id: 5
+                }
+            }).then(res => {
+                this.articulo = res.data
+            }).catch(error => {
+                console.error(error)
+            })
+
+            axios.get('/API/datos')
+            .then(res => {
+                this.datos = res.data
+                this.datos.telefonoConFormato = format(this.datos.telefono, 'tel')
+            }).catch(error => {
+                console.error(error)
+            })
+
+            
         }
     })
 </script>

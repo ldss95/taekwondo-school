@@ -2,8 +2,6 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    req.session.cuenta = (req.session.cuenta) ? req.session.cuenta + 1: 1
-    console.log(req.session.cuenta)
     res.render('home')
 })
 

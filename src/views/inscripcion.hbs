@@ -7,7 +7,17 @@
     new Vue({
         el: '#app',
         data: {
-            page: 'inscripcion'
+            page: 'inscripcion',
+            datos: {}
+        },
+        mounted(){
+            axios.get('/API/datos')
+            .then(res => {
+                this.datos = res.data
+                this.datos.telefonoConFormato = format(this.datos.telefono, 'tel')
+            }).catch(error => {
+                console.error(error)
+            })
         }
     })
 </script>

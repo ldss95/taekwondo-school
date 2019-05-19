@@ -63,16 +63,17 @@
             mision: '',
             vision: '',
             valores: '',
-            team: []
+            team: [],
+            datos: {}
         },
         mounted(){
             axios.get('/API/articulos')
             .then(res => {
                 if(res.status == 200){
-                    this.quienes_somos = res.data[0].texto
-                    this.mision = res.data[1].texto
-                    this.vision = res.data[2].texto
-                    this.valores = res.data[3].texto
+                    this.quienes_somos = res.data.texto
+                    this.mision = res.data.texto
+                    this.vision = res.data.texto
+                    this.valores = res.data.texto
                 }
             }).catch(error => {
                 console.error(error)
@@ -83,6 +84,14 @@
                 if(res.status == 200){
                     this.team = res.data
                 }
+            }).catch(error => {
+                console.error(error)
+            })
+
+            axios.get('/API/datos')
+            .then(res => {
+                this.datos = res.data
+                this.datos.telefonoConFormato = format(this.datos.telefono, 'tel')
             }).catch(error => {
                 console.error(error)
             })
