@@ -25,13 +25,13 @@ header#main_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: inherit; }
+    z-index: 21; }
     header#main_header .container > div {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       color: #fff;
-      z-index: inherit; }
+      z-index: 21; }
   header#main_header #toggle_menu {
     cursor: pointer;
     color: #fff;

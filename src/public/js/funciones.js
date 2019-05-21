@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(e){
 	document.querySelector('#toggle_menu').addEventListener('click', () => toggleMenu())
 	document.querySelector("#main_menu ul li a[href='/#cursos']").addEventListener('click', () => toggleMenu())
+	document.querySelector("#main_menu ul li a[href='/#cursos']").addEventListener('click', () => toggleMenu())
 })
 
 function toggleMenu(){
