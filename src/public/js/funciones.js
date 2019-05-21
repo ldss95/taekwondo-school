@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', function(e){
 	document.querySelector('#toggle_menu').addEventListener('click', () => toggleMenu())
-	document.querySelector("#main_menu ul li a[href='/#cursos']").addEventListener('click', () => toggleMenu())
-	document.querySelector("#main_menu ul li a[href='/#cursos']").addEventListener('click', () => toggleMenu())
+	document.querySelector("#main_menu ul li a[href='/#cursos']").addEventListener('click', function(){
+		this.classList.add('active')
+		toggleMenu()
+		document.querySelector("#main_menu ul li a.active").classList.remove('active')
+	})
 })
 
 function toggleMenu(){
