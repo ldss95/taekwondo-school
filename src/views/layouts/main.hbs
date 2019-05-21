@@ -21,5 +21,20 @@
 
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelector('#FLogin').addEventListener('submit', function(e){
+            e.preventDefault()
+            let datos = serialize(this)
+            axios.post('/API/usuarios/login', datos)
+            .then(res => {
+                if(true != res.data){
+                    alert(res.data)
+                }else
+                    alert('Login correcto')
+            }).catch(error => {
+                console.log(error)
+            })
+        })
+    </script>
 </body>
 </html>

@@ -1,26 +1,73 @@
-<header id="main_menu">
+<header id="main_header">
     <div class="container">
-        <nav class="navbar navbar-expand-lg">
-            <!--
-            <a class="navbar-brand" v-text="usuario.nombre"></a>
-            -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li><a class="nav-link" href="/" :class="{ active: page == 'inicio' }">INICIO</a></li>
-                    <li><a class="nav-link" href="/#cursos" :class="{ active: page == 'cursos' }">CURSOS</a></li>
-                    <li><a class="nav-link" href="/sobre_nosotros" :class="{ active: page == 'nosotros' }">SOBRE NOSOTROS</a></li>
-                    <li><a class="nav-link" href="/videos" :class="{ active: page == 'videos' }">VIDEOS</a></li>
-                    <li><a class="nav-link" href="/eventos" :class="{ active: page == 'eventos' }">EVENTOS</a></li>
-                    <li><a class="nav-link" href="/consultas" :class="{ active: page == 'consultas' }">CONSULTAS</a></li>
-                    <li><a class="nav-link" href="/login" :class="{ active: page == 'login' }">INGRESOS</a></li>
-                    <li><a class="nav-link" href="/inscripcion" :class="{ active: page == 'inscripcion' }">INSCRIPCION</a></li>
-                </ul>
+        <div>
+            <div id="toggle_menu">
+                <div class="hamburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="text">
+                    Menu
+                </div>
             </div>
-        </nav>
-    </div>
+        </div>
+        <div class="d-none d-md-block">
+            <h2>TKS SC</h2>
+        </div>
+        <div>
+            <div id="login_button" data-toggle="modal" data-target="#MLogin">
+                <i class="far fa-user"></i>
+                Iniciar Sesion
+            </div>
+        </div>
 </header>
+
+<nav id="main_menu">
+    <ul>
+        <li><a href="/" :class="{ active: page == 'inicio' }">INICIO</a></li>
+        <li><a href="/#cursos" :class="{ active: page == 'cursos' }">CURSOS</a></li>
+        <li><a href="/sobre_nosotros" :class="{ active: page == 'nosotros' }">SOBRE NOSOTROS</a></li>
+        <li><a href="/videos" :class="{ active: page == 'videos' }">VIDEOS</a></li>
+        <li><a href="/eventos" :class="{ active: page == 'eventos' }">EVENTOS</a></li>
+        <li><a href="/consultas" :class="{ active: page == 'consultas' }">CONSULTAS</a></li>
+        <li><a href="/inscripcion" :class="{ active: page == 'inscripcion' }">INSCRIPCION</a></li>
+    </ul>
+</nav>
+
+<div class="modal fade" id="MLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form id="FLogin" class="modal-body">
+                <br>
+                <h4 class="text-center">Iniciar Sesion</h4>
+                <br>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="email" id="lf_email" name="email" class="form-control" placeholder="Correo Electronico" required>
+                        <label for="lf_email">Correo Electronico</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="password" id="lf_pass" name="pass" class="form-control" placeholder="Contraseña" required>
+                        <label for="lf_pass">Contraseña</label>
+                    </div>
+                    <a href="#">Olvidaste tu contraseña?</a>
+                </div>
+                
+
+                <div class="text-center">
+                    <br>
+                    <br>
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

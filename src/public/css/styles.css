@@ -4,43 +4,103 @@
 /*
     Fondos
 */
+@font-face {
+  font-family: 'Alfa';
+  src: url("/fonts/AlfaSlabOne-Regular.ttf"); }
 html {
   scroll-behavior: smooth; }
 
 body {
   width: 100%; }
 
-header#main_menu {
+header#main_header {
   width: 100%;
   background: #444;
-  padding: 0 15px 15px 15px;
-  z-index: 2; }
-  header#main_menu .navbar {
-    padding: 0;
-    margin: 0; }
-  header#main_menu .navbar-toggler {
-    margin-top: 15px;
-    border: solid 1px #fff !important; }
-    header#main_menu .navbar-toggler i {
-      color: #fff; }
-  header#main_menu ul li a {
-    margin: 15px 10px 0 0px;
-    text-decoration: none;
+  z-index: 21;
+  padding: 15px; }
+  header#main_header h2 {
+    margin: 0;
+    font-family: Alfa; }
+  header#main_header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: inherit; }
+    header#main_header .container > div {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: #fff;
+      z-index: inherit; }
+  header#main_header #toggle_menu {
+    cursor: pointer;
     color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: ease all .3s; }
-    header#main_menu ul li a:after {
-      content: "";
-      position: absolute;
+    padding: 0 5px;
+    border: solid 1px rgba(255, 255, 255, 0);
+    transition: ease all .5s;
+    border-radius: 3px;
+    z-index: inherit;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; }
+    header#main_header #toggle_menu .hamburguer {
+      width: 40px;
+      margin-right: 15px; }
+    header#main_header #toggle_menu.active span {
+      width: 100% !important; }
+    header#main_header #toggle_menu span {
       display: block;
-      width: 15px;
-      height: 2px;
-      background: #fff; }
-    header#main_menu ul li a:hover, header#main_menu ul li a.active {
+      margin: 7px 0;
+      height: 3px;
+      background: #fff;
+      border-radius: 3px;
+      transition: ease all .5s; }
+      header#main_header #toggle_menu span:first-child {
+        width: 50%; }
+      header#main_header #toggle_menu span:nth-child(2) {
+        width: 100%; }
+      header#main_header #toggle_menu span:nth-child(3) {
+        width: 75%; }
+    header#main_header #toggle_menu:hover {
+      border: solid 1px rgba(255, 255, 255, 0.5); }
+  header#main_header #login_button {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: ease all .3s; }
+    header#main_header #login_button i {
+      margin-right: 5px; }
+    header#main_header #login_button:hover {
       background: #4250f4; }
-      header#main_menu ul li a:hover:after, header#main_menu ul li a.active:after {
-        display: none; }
+
+nav#main_menu {
+  background: #444;
+  height: 100%;
+  position: fixed;
+  max-width: 400px;
+  width: 100%;
+  left: -100%;
+  top: 0;
+  z-index: 20;
+  transition: ease all .3s;
+  padding-top: 100px; }
+  nav#main_menu.active {
+    left: 0; }
+  nav#main_menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 10%; }
+    nav#main_menu ul li {
+      margin: 5px 0; }
+      nav#main_menu ul li a {
+        text-decoration: none;
+        display: block;
+        padding: 15px;
+        color: #fff;
+        transition: ease all .3s;
+        border-radius: 3px; }
+        nav#main_menu ul li a:hover, nav#main_menu ul li a.active {
+          background: #4250f4; }
 
 #main_slider {
   height: 600px;
@@ -135,6 +195,9 @@ header#main_menu {
     #login_container #login_form button {
       display: block;
       margin: 0 auto; }
+
+#FLogin .btn {
+  margin: 0 15px; }
 
 .btn {
   border-radius: 3px;

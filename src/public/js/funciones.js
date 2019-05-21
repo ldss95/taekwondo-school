@@ -1,3 +1,20 @@
+document.addEventListener('DOMContentLoaded', function(e){
+	document.querySelector('#toggle_menu').addEventListener('click', () => toggleMenu())
+	document.querySelector("#main_menu ul li a[href='/#cursos']").addEventListener('click', () => toggleMenu())
+})
+
+function toggleMenu(){
+	let activo = document.querySelector('nav#main_menu').classList.contains('active')
+	let button = document.querySelector('#toggle_menu')
+	if(activo){
+		document.querySelector('nav#main_menu').classList.remove('active')
+		button.classList.remove('active')
+	}else{
+		document.querySelector('nav#main_menu').classList.add('active')
+		button.classList.add('active')
+	}
+}
+
 function format(input, type, decimals = true) {
 	let output = ''
 	switch (type) {
