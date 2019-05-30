@@ -1,11 +1,12 @@
-const modeloPago = require('../models/pago')
+const Modelo = require('../models/pago')
+const Controlador =  {}
 
-function getPago(req, res){
+Controlador.getPago = (req, res) => {
     res.status(200).send('Todo esta funcionando bien')
 }
 
-function getPagos(req, res){
-    odeloPago.getPagos((error, rows) => {
+Controlador.getPagos = (req, res) => {
+    Modelo.getPagos((error, rows) => {
         if(error){
             res.status(500).send(error)
         }else{
@@ -14,7 +15,4 @@ function getPagos(req, res){
     })
 }
 
-module.exports = {
-    getPago,
-    getPagos
-}
+module.exports = Controlador

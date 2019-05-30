@@ -1,0 +1,46 @@
+<div id="app">
+    {{> header }}
+    
+    <div class="container">
+        <br>
+        <div class="row">
+            <aside class="col-12 col-md-4 perfil">
+                <div class="imagen-de-perfil" :style="{backgroundImage: 'url(' + session.imagen + ')'}"></div>
+                <h4 class="text-center" v-text="session.name"></h4>
+            </aside>
+            <main class="col-12 col-md-8">
+                main
+            </main>
+        </div>
+    </div>
+
+    {{> footer }}
+</div>
+<script>
+    const vue = new Vue({
+        el: '#app',
+        data: {
+            page: 'perfil',
+            quienes_somos: '',
+            datos: {},
+            session: {}
+        },
+        watch: {
+            session(newVal, oldVal){
+                if(!this.session.loggedin)
+                    window.location.href = '/'
+            }
+        },
+        mounted(){
+            axios.get('/API/datos')
+            .then(res => {
+                this.datos = res.data
+                this.datos.telefonoConFormato = format(this.datos.telefono, 'tel')
+            }).catch(error => {
+                console.error(error)
+            })
+
+            cargarSesion()
+        }
+    })
+</script>

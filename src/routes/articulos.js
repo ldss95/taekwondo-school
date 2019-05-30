@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const controller = require('../controllers/articulos')
+const Controlador = require('../controllers/articulos')
 
-router.get('/', controller.get)
+router.get('/', Controlador.get)
 
 module.exports = router

@@ -1,16 +1,35 @@
 const db = require('./conexion')
 const bcrypt = require('bcrypt-nodejs')
-let modelo = {}
+const Modelo = {}
 
-modelo.login = (email, pass, callback) => {
-    db.query('SELECT * FROM usuarios WHERE email = ?', [email], (error, result) => {
-        if(result.length){
-            if(result[0].estado){
-                bcrypt.compare(pass, result[0].password, (bcError, bcResult) => {
+Modelo.login = (email, pass, callback) => {
+    let query = `
+        SELECT 
+            u.nombre, 
+            u.email, 
+            u.rol, 
+            u.estado,
+            u.password,
+            u.imagen,
+            r.nombre AS rol
+        FROM 
+            usuarios u
+        INNER JOIN
+            roles r
+        ON
+            r.id = u.rol
+        WHERE u.email = ?`
+
+    db.query(query, [email], (error, user) => {
+        if(error)
+            callback(error, null)
+        else if(user.length){
+            if(user[0].estado){
+                bcrypt.compare(pass, user[0].password, (bcError, bcResult) => {
                     if(bcResult)
-                        callback(null, true)
+                        callback(null, user[0])
                     else
-                        callback(bcError, 'Contrseña incorrecta')
+                        callback(null, 'Contrseña incorrecta')
                 })
             }else
                 callback(null, 'Usuario desabilitado')
@@ -19,4 +38,4 @@ modelo.login = (email, pass, callback) => {
     })
 }
 
-module.exports = modelo
+module.exports = Modelo

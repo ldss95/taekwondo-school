@@ -1,10 +1,10 @@
 const db = require('./conexion')
-const modelo = {}
+const Modelo = {}
 
-modelo.get = (callback) => {
+Modelo.get = (callback) => {
     db.query('SELECT * FROM datos', (error, res) => {
         callback(error, res[0])
     })
 }
 
-module.exports = modelo
+module.exports = Modelo

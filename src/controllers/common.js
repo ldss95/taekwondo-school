@@ -1,8 +1,8 @@
-const Modelo = require('../models/team')
+const Modelo = require('../models/common')
 const Controlador = {}
 
-Controlador.gets = (req, res) => {
-    Modelo.gets((error, rows) => {
+Controlador.home = (req, res) => {
+    Modelo.home((error, rows) => {
         if(error)
             res.status(500).send(error)
         else

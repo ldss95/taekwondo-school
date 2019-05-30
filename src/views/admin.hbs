@@ -1,15 +1,22 @@
 <div id="app">
     {{> header }}
 
-    {{> footer}}
+    {{> footer }}
 </div>
 <script>
     const vue = new Vue({
         el: '#app',
-        data:{
-            page: 'videos',
+        data: {
+            page: 'perfil',
+            quienes_somos: '',
             datos: {},
             session: {}
+        },
+        watch: {
+            session(newVal, oldVal){
+                if(this.session.rol != 'Administrador')
+                    window.location.href = '/'
+            }
         },
         mounted(){
             axios.get('/API/datos')

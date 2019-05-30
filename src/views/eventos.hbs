@@ -33,13 +33,14 @@
     {{> footer }}
 </div>
 <script>
-    new Vue({
+    const vue = new Vue({
         el: '#app',
         data: {
             page: 'eventos',
             eventos: [],
             noticias: [],
-            datos: {}
+            datos: {},
+            session: {}
         },
         mounted(){
             axios.get('/API/eventos')
@@ -61,6 +62,8 @@
             }).catch(error => {
                 console.error(error)
             })
+
+            cargarSesion()
         }
     })
 </script>

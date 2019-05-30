@@ -1,8 +1,8 @@
-const model = require('../models/eventos')
-const controller = {}
+const Modelo = require('../models/eventos')
+const Controlador = {}
 
-controller.get = (req, res) => {
-    model.get(null, (error, rows) => {
+Controlador.get = (req, res) => {
+    Modelo.get(null, (error, rows) => {
         if(error)
             res.status(500).send(error)
         else
@@ -10,4 +10,4 @@ controller.get = (req, res) => {
     })
 }
 
-module.exports = controller
+module.exports = Controlador

@@ -13,12 +13,32 @@
             </div>
         </div>
         <div class="d-none d-md-block">
-            <h2>TKS SC</h2>
+            <h2 v-text="datos.nombre"></h2>
         </div>
         <div>
-            <div id="login_button" data-toggle="modal" data-target="#MLogin">
+            <div id="login_button" data-toggle="modal" data-target="#MLogin" v-if="!session.loggedin">
                 <i class="far fa-user"></i>
                 Iniciar Sesion
+            </div>
+            <div v-else id="user_button">
+                <i class="far fa-user"></i>
+                <span v-text="session.name.substr(0, 15)"></span>
+
+                <div class="user-sub-menu">
+                    <div class="contenedor">
+                        <ul>
+                            <li v-if="session.rol == 'Cliente'">
+                                <a href="/perfil">Mi Cuenta</a>
+                            </li>
+                            <li v-else>
+                                <a href="/admin">Administrar</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick='logout()'>Cerrar Sesion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 </header>
@@ -56,14 +76,16 @@
                         <input type="password" id="lf_pass" name="pass" class="form-control" placeholder="Contraseña" required>
                         <label for="lf_pass">Contraseña</label>
                     </div>
+                    <!--
                     <a href="#">Olvidaste tu contraseña?</a>
-                </div>
-                
+                    -->
+                    
+                    <div id="login_error">
 
+                    </div>
+                </div>
                 <div class="text-center">
                     <br>
-                    <br>
-                    
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-primary">Ingresar</button>
                 </div>

@@ -10,5 +10,7 @@ router.use('/cursos', require('./cursos'))
 router.use('/datos', require('./datos'))
 router.use('/contactos', require('./contactos'))
 router.use('/usuarios', require('./usuarios'))
+router.use('/common', require('./common'))
+router.use('/newsletter', require('./newsletter'))
 
 module.exports = router

@@ -55,7 +55,7 @@
     {{> footer}}
 </div>
 <script>
-    new Vue({
+    const vue = new Vue({
         el: '#app',
         data: {
             page: 'nosotros',
@@ -64,7 +64,8 @@
             vision: '',
             valores: '',
             team: [],
-            datos: {}
+            datos: {},
+            session: {}
         },
         mounted(){
             axios.get('/API/articulos')
@@ -95,6 +96,8 @@
             }).catch(error => {
                 console.error(error)
             })
+        
+            cargarSesion()
         }
     })
 </script>

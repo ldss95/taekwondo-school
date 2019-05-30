@@ -1,14 +1,213 @@
 <div id="app">
     {{> header }}
 
+    <form class="container">
+        <br>
+        <h2 class="text-center">Formulario de Inscripcion</h2>
+        <br>
+        
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="select-card" :class="{'active': solicitud.tipo == 'padre'}" @click="solicitud.tipo = 'padre'">
+                    <h4>Soy padre</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum exercitationem deleniti eum quos dolorum reiciendis eius impedit.</p>
+                </div>
+                <br>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="select-card" :class="{'active': solicitud.tipo == 'alumno'}" @click="solicitud.tipo = 'alumno'">
+                    <h4>Soy alumno</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum reprehenderit consequuntur maxime perspiciatis iusto natus ad.</p>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div v-if="solicitud.tipo == 'padre'" class="chased">
+            <h4>Tus datos</h4>
+            <br>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="nombres_padre" placeholder="Nombres" required>
+                        <label for="nombres_padre">Nombres</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="apellidos_padre" placeholder="Apellidos" required>
+                        <label for="apellidos_padre">Apellidos</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="cedula_padre" placeholder="Cedula (DUI)" required>
+                        <label for="cedula_padre">Cedula (DUI)</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="direccion_padre" placeholder="Direccion" required>
+                        <label for="direccion_padre">Direccion</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="telefono_padre" placeholder="Telefono" required>
+                        <label for="telefono_padre">Telefono</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email_padre" placeholder="Correo Electronico" required>
+                        <label for="email_padre">Correo Electronico</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Foto</label>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="solicitud.tipo == 'alumno'" class="chased">
+            <h4>Tus datos</h4>
+            <br>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="nombres_alumno" placeholder="Nombres" required>
+                        <label for="nombres_alumno">Nombres</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="apellidos_alumno" placeholder="Apellidos" required>
+                        <label for="apellidos_alumno">Apellidos</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="cedula_alumno" placeholder="Cedula (DUI)" required>
+                        <label for="cedula_alumno">Cedula (DUI)</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="direccion_alumno" placeholder="Direccion" required>
+                        <label for="direccion_alumno">Direccion</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="telefono_alumno" placeholder="Telefono" required>
+                        <label for="telefono_alumno">Telefono</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email_alumno" placeholder="Correo Electronico" required>
+                        <label for="email_alumno">Correo Electronico</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Foto</label>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="edad_alumno" placeholder="Edad" required>
+                        <label for="edad_alumno">Edad</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <h4 class="text-center">Metodo de pago</h4>
+        <br>
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <div class="select-card" :class="{'active': solicitud.metodo_de_pago == 'efectivo'}" @click="solicitud.metodo_de_pago = 'efectivo'">
+                    <h4>Efectivo</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit..</p>
+                </div>
+                <br>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <div class="select-card" :class="{'active': solicitud.metodo_de_pago == 'tarjeta'}" @click="solicitud.metodo_de_pago = 'tarjeta'">
+                    <h4>Tarjeta de Credito</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit..</p>
+                </div>
+                <br>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <div class="select-card" :class="{'active': solicitud.metodo_de_pago == 'paypal'}" @click="solicitud.metodo_de_pago = 'paypal'">
+                    <h4>Paypal</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit..</p>
+                </div>
+                <br>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <div class="select-card" :class="{'active': solicitud.metodo_de_pago == 'deposito'}" @click="solicitud.metodo_de_pago = 'deposito'">
+                    <h4>Deposito Bancario</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit..</p>
+                </div>
+                <br>
+            </div>
+        </div>
+    </form>
+
+    <br><br>
+
     {{> footer }}
 </div>
 <script>
-    new Vue({
+    const vue = new Vue({
         el: '#app',
         data: {
             page: 'inscripcion',
-            datos: {}
+            datos: {},
+            session: {},
+            solicitud: {
+                tipo: 'padre',
+                metodo_de_pago: 'efectivo'
+            }
         },
         mounted(){
             axios.get('/API/datos')
@@ -18,6 +217,8 @@
             }).catch(error => {
                 console.error(error)
             })
+
+            cargarSesion()
         }
     })
 </script>

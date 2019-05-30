@@ -1,13 +1,13 @@
-const Modelo = require('../models/cursos')
+const Modelo = require('../models/newsletter')
 const Controlador = {}
 
-Controlador.get = (req, res) => {
-    Modelo.get(req.query.id, (error, result) => {
+Controlador.agregar = (req, res) => {
+    Modelo.agregar(req.body.email, (error, result) => {
         if(error)
             res.status(500).send(error)
         else
             res.status(200).send(result)
-    })   
+    })
 }
 
 module.exports = Controlador

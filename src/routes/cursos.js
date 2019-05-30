@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const controller = require('../controllers/cursos')
+const Controlador = require('../controllers/cursos')
 
-router.get('/', controller.get)
+router.get('/', Controlador.get)
 
 module.exports = router

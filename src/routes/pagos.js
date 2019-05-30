@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const controller = require('../controllers/pago')
+const Controlador = require('../controllers/pago')
 
-router.get('/API/pago/:id', controller.getPago)
-router.get('/API/pagos', controller.getPagos)
+router.get('/API/pago/:id', Controlador.getPago)
+router.get('/API/pagos', Controlador.getPagos)
 
 module.exports = router

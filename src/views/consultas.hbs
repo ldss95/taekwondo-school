@@ -6,8 +6,8 @@
             <div class="contenido">
                 <h3 class="text-center">Mantengase al tanto del progeso de su hijo/a!</h3>
                 <br>
-                <form id="buscador">
-                    <input type="number" placeholder="Numero de Cedula" required>
+                <form id="buscador" @submit="consultar">
+                    <input type="text" class="dui" placeholder="Numero de Cedula" required>
                     <button class="btn btn-primary" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
@@ -17,25 +17,38 @@
     </div>
 </div>
 <script>
-    new Vue({
+    const vue = new Vue({
         el: '#app',
         data: {
             page: 'consultas',
-            datos: {}
+            datos: {},
+            session: {}
+        },
+        methods: {
+            consultar(e){
+                e.preventDefault()
+                let cedula = e.target.querySelector('input').value
+                if(validarCedula(cedula)){
+
+                }else{
+                    swal.fire(
+                        'Oops!',
+                        'Numero de cedula invalido',
+                        'warning'
+                    )
+                }
+            }
         },
         mounted(){
-            document.querySelector('#buscador').addEventListener('submit', function(e){
-                e.preventDefault()
-                alert('Enviando')
-            })
-
             axios.get('/API/datos')
             .then(res => {
-                this.datos = res.data[0]
+                this.datos = res.data
                 this.datos.telefonoConFormato = format(this.datos.telefono, 'tel')
             }).catch(error => {
                 console.error(error)
             })
+
+            cargarSesion()
         }
     })
 </script>

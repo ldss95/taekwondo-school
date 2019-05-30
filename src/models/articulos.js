@@ -1,7 +1,7 @@
 const db = require('./conexion')
-const model = {}
+const Modelo = {}
 
-model.get = (id, callback) => {
+Modelo.get = (id, callback) => {
     if(id){
         db.query('SELECT nombre, texto FROM articulos WHERE id = ?', [id], (error, rows) => {
             callback(error, (error) ? error.sqlMessage: rows[0])
@@ -13,4 +13,4 @@ model.get = (id, callback) => {
     }
 }
 
-module.exports = model
+module.exports = Modelo

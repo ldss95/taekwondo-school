@@ -1,29 +1,29 @@
 const db = require('./conexion')
-let modelo = {}
+const Modelo = {}
 
-modelo.get = (id, callback) => {
+Modelo.get = (id, callback) => {
     db.query('SELECT * FROM alumnos WHERE id = ?', [id], (error, row) => {
         callback(null, (error) ? error.sqlMessage: row)
     })
 }
 
-modelo.gets = (callback) => {
+Modelo.gets = (callback) => {
     db.query('SELECT * FROM alumnos ORDER BY id', (error, rows) => {
         callback(null, (error) ? error.sqlMessage: rows)
     })
 }
 
-modelo.crear = (alumno, callback) => {
+Modelo.crear = (alumno, callback) => {
     db.query('INSERT INTO alumnos SET ?', alumno, (error, result) => {
         callback(null, (error) ? error.sqlMessage: result)
     })
 }
 
-modelo.actualizar = (datos, callback) => {
+Modelo.actualizar = (datos, callback) => {
     //db.query('UPDATE alumnos SET ')
 }
 
-modelo.eliminar = (id, callback) => {
+Modelo.eliminar = (id, callback) => {
     db.query('DELETE FROM alumnos WHERE id = ?', [id], (error, row) => {
         callback(
             null, 
@@ -36,4 +36,4 @@ modelo.eliminar = (id, callback) => {
     })
 }
 
-module.exports = modelo
+module.exports = Modelo

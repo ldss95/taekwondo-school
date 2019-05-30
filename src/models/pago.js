@@ -1,8 +1,7 @@
 const db = require('./conexion')
+const Modelo = {}
 
-let modeloPago = {}
-
-modeloPago.getPagos = (callback) => {
+Modelo.getPagos = (callback) => {
     db.query('SELECT * FROM pagos ORDER BY id', (error, rows) => {
         if(error){
             callback(null, error.sqlMessage)
@@ -12,4 +11,4 @@ modeloPago.getPagos = (callback) => {
     })
 }
 
-module.exports = modeloPago
+module.exports = Modelo

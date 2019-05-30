@@ -12,29 +12,15 @@
 
     <script src="/js/swal2.min.js"></script>
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/mask.js"></script>
     <script src="/js/vue.dev.js"></script>
     <script src="/js/axios.min.js"></script>
-    <script src="/js/funciones.js"></script>
+    <script src="/js/main.js"></script>
 </head>
 <body>
     {{{ body }}}
 
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script>
-        document.querySelector('#FLogin').addEventListener('submit', function(e){
-            e.preventDefault()
-            let datos = serialize(this)
-            axios.post('/API/usuarios/login', datos)
-            .then(res => {
-                if(true != res.data){
-                    alert(res.data)
-                }else
-                    alert('Login correcto')
-            }).catch(error => {
-                console.log(error)
-            })
-        })
-    </script>
 </body>
 </html>
