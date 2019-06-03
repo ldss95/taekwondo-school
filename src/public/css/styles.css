@@ -17,7 +17,12 @@ header#main_header {
   width: 100%;
   background: #444;
   z-index: 21;
-  padding: 15px; }
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  transition: ease all .3s; }
+  header#main_header.hide {
+    transform: translateY(-69px); }
   header#main_header h2 {
     margin: 0;
     font-family: Alfa; }
@@ -132,6 +137,9 @@ nav#main_menu {
         border-radius: 3px; }
         nav#main_menu ul li a:hover, nav#main_menu ul li a.active {
           background: #4250f4; }
+
+main {
+  margin-top: 69px; }
 
 #main_slider {
   height: 450px;
@@ -405,7 +413,7 @@ nav#main_menu {
 
 .form-control {
   border: none;
-  border-bottom: solid 1px #000;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.5);
   border-radius: 0; }
   .form-control:focus {
     outline: none;
@@ -450,11 +458,12 @@ aside.perfil .imagen-de-perfil {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: ease all .4s; }
   .select-card:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 0 15px rgba(66, 80, 244, 0.3);
+    border: 1px solid rgba(66, 80, 244, 0.3); }
   .select-card.active {
     background: #4250f4;
     color: #fff;
-    box-shadow: 0 0 10px rgba(66, 80, 244, 0.1); }
+    box-shadow: 0 0 10px rgba(66, 80, 244, 0.3); }
     .select-card.active:after {
       content: "\2713";
       font-size: 30px;
@@ -464,11 +473,19 @@ aside.perfil .imagen-de-perfil {
       right: 30px; }
     .select-card.active:hover {
       box-shadow: 0 0 15px rgba(66, 80, 244, 0.3); }
+  .select-card.disabled {
+    background: #dfdfdf;
+    border: solid 1px #dfdfdf;
+    cursor: default; }
+    .select-card.disabled:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
 
 .chased {
-  border: solid 1px rgba(0, 0, 0, 0.2);
+  border: solid 1px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
-  padding: 15px; }
+  padding: 30px 15px 15px 15px;
+  margin-bottom: 30px;
+  position: relative; }
 
 .custom-file label {
   border: none;
@@ -476,5 +493,61 @@ aside.perfil .imagen-de-perfil {
   border-bottom: solid 1px; }
 .custom-file input {
   border-bottom: solid 1px #000; }
+
+#agregar_hijo {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  transition: ease all .4s; }
+  #agregar_hijo:after {
+    position: absolute;
+    bottom: 5px;
+    content: "Inscribir otro hijo"; }
+  #agregar_hijo:hover {
+    border: solid 1px #4250f4; }
+    #agregar_hijo:hover i {
+      font-size: 40px;
+      color: #4250f4; }
+  #agregar_hijo i {
+    font-size: 40px;
+    transition: ease all .4s; }
+
+.eliminar-hijo {
+  font-size: 40px;
+  color: #ff4444;
+  background: #fff;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  cursor: pointer;
+  text-shadow: 0 0 5px rgba(255, 68, 68, 0.4);
+  transition: ease all .3s; }
+  .eliminar-hijo:hover {
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.4); }
+
+/* overlay layer */
+.ssm-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  display: block; }
+  .ssm-overlay.hide {
+    display: none; }
+
+/* prevent scroll when nav is open */
+.is-navOpen {
+  overflow: hidden; }
 
 /*# sourceMappingURL=styles.css.map */
