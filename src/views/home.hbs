@@ -58,7 +58,7 @@
                                         <div class="text-center">
                                             <button class="btn btn-secondary" @click="detallesDelCurso(index)">Mas
                                                 detalles</button>
-                                            <button class="btn btn-primary">Inscribete</button>
+                                            <button class="btn btn-primary" @click="inscribete(curso.id)">Inscribete</button>
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
         </div>
 
         <div id="main_video">
-            <iframe width="1907" height="100%" src="https://www.youtube.com/embed/HkAmVkESI1E" frameborder="0"
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HkAmVkESI1E" frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
@@ -96,7 +96,6 @@
                                             placeholder="Nomrbe" required>
                                         <label for="fc_nombre" class="control-label">Nombre</label>
                                     </div>
-                                    <br>
                                 </div>
 
                                 <div class="col-md-6">
@@ -105,7 +104,6 @@
                                             placeholder="Email" required>
                                         <label for="fc_email">Email</label>
                                     </div>
-                                    <br>
                                 </div>
 
                                 <div class="col-md-6">
@@ -114,7 +112,6 @@
                                             placeholder="Asunto">
                                         <label for="fc_asunto">Asunto</label>
                                     </div>
-                                    <br>
                                 </div>
 
                                 <div class="col-md-6">
@@ -123,7 +120,6 @@
                                             placeholder="Telefono" min="8090000001">
                                         <label for="fc_tel">Telefono</label>
                                     </div>
-                                    <br>
                                 </div>
 
                                 <div class="col-12">
@@ -132,7 +128,6 @@
                                             placeholder="Mensaje"></textarea>
                                         <label for="fc_mensaje">Mensaje</label>
                                     </div>
-                                    <br>
                                 </div>
 
                                 <div class="col-12">
@@ -244,6 +239,10 @@
             detallesDelCurso(index) {
                 this.cursoDetalles = this.cursos[index]
                 $('#MDetallesDelCurso').modal('show')
+            },
+            inscribete(curso){
+                if(!this.session.loggedin)
+                    window.location.href = '/inscripcion'
             }
         },
         mounted() {

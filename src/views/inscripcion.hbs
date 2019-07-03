@@ -24,6 +24,7 @@
                     <br>
                 </div>
             </div>
+
             <div v-if="solicitud.tipo == 'padre'">
                 <h4>Tus datos</h4>
                 <div class="chased">
@@ -33,7 +34,6 @@
                                 <input type="text" class="form-control" id="nombres_padre" placeholder="Nombres" required>
                                 <label for="nombres_padre">Nombres</label>
                             </div>
-                            <br>
                         </div>
 
                         <div class="col-12 col-md-4">
@@ -41,7 +41,6 @@
                                 <input type="text" class="form-control" id="apellidos_padre" placeholder="Apellidos" required>
                                 <label for="apellidos_padre">Apellidos</label>
                             </div>
-                            <br>
                         </div>
 
                         <div class="col-12 col-md-4">
@@ -49,7 +48,6 @@
                                 <input type="text" class="form-control" id="cedula_padre" placeholder="Cedula (DUI)" required>
                                 <label for="cedula_padre">Cedula (DUI)</label>
                             </div>
-                            <br>
                         </div>
 
                         <div class="col-12 col-md-4">
@@ -57,7 +55,6 @@
                                 <input type="text" class="form-control" id="direccion_padre" placeholder="Direccion" required>
                                 <label for="direccion_padre">Direccion</label>
                             </div>
-                            <br>
                         </div>
 
                         <div class="col-12 col-md-4">
@@ -65,7 +62,6 @@
                                 <input type="number" class="form-control" id="telefono_padre" placeholder="Telefono" required>
                                 <label for="telefono_padre">Telefono</label>
                             </div>
-                            <br>
                         </div>
 
                         <div class="col-12 col-md-4">
@@ -94,7 +90,6 @@
                                 <input type="text" class="form-control" :id="'nombres_hijo' + index" placeholder="Nombres" v-model="solicitud.hijos[index].nombre" required>
                                 <label :for="'nombres_hijo' + index">Nombres</label>
                             </div>
-                            <br>
                         </div>
 
                         <div class="col-12 col-md-4">
@@ -102,7 +97,6 @@
                                 <input type="text" class="form-control" :id="'apellidos_hijo' + index" placeholder="Apellidos" v-model="solicitud.hijos[index].apellidos" required>
                                 <label :for="'apellidos_hijo' + index">Apellidos</label>
                             </div>
-                            <br>
                         </div>
 
                         <div class="col-6 col-md-2">
@@ -110,7 +104,6 @@
                                 <input type="number" max="100" class="form-control" :id="'edad_hijo' + index" placeholder="Edad" v-model="solicitud.hijos[index].edad" required>
                                 <label :for="'edad_hijo' + index">Edad</label>
                             </div>
-                            <br>
                         </div>
 
                         <div class="col-6 col-md-2">
@@ -122,7 +115,6 @@
                                 </select>
                                 <label :for="'genero_hijo' + index">Genero</label>
                             </div>
-                            <br>
                         </div>
 
                         <div class="col-12 col-md-4">
@@ -153,70 +145,71 @@
                 </div>            
             </div>
 
-            <div v-if="solicitud.tipo == 'alumno'" class="chased">
+            <div v-if="solicitud.tipo == 'alumno'">
                 <h4>Tus datos</h4>
-                <br>
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="nombres_alumno" placeholder="Nombres" required>
-                            <label for="nombres_alumno">Nombres</label>
+                <div class="chased">
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="nombres_alumno" placeholder="Nombres" required>
+                                <label for="nombres_alumno">Nombres</label>
+                            </div>
+                            <br>
                         </div>
-                        <br>
-                    </div>
 
-                    <div class="col-12 col-md-4">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="apellidos_alumno" placeholder="Apellidos" required>
-                            <label for="apellidos_alumno">Apellidos</label>
+                        <div class="col-12 col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="apellidos_alumno" placeholder="Apellidos" required>
+                                <label for="apellidos_alumno">Apellidos</label>
+                            </div>
+                            <br>
                         </div>
-                        <br>
-                    </div>
 
-                    <div class="col-12 col-md-4">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="cedula_alumno" placeholder="Cedula (DUI)" required>
-                            <label for="cedula_alumno">Cedula (DUI)</label>
+                        <div class="col-12 col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="cedula_alumno" placeholder="Cedula (DUI)" required>
+                                <label for="cedula_alumno">Cedula (DUI)</label>
+                            </div>
+                            <br>
                         </div>
-                        <br>
-                    </div>
 
-                    <div class="col-12 col-md-4">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="direccion_alumno" placeholder="Direccion" required>
-                            <label for="direccion_alumno">Direccion</label>
+                        <div class="col-12 col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="direccion_alumno" placeholder="Direccion" required>
+                                <label for="direccion_alumno">Direccion</label>
+                            </div>
+                            <br>
                         </div>
-                        <br>
-                    </div>
 
-                    <div class="col-12 col-md-4">
-                        <div class="form-group">
-                            <input type="number" class="form-control" id="telefono_alumno" placeholder="Telefono" required>
-                            <label for="telefono_alumno">Telefono</label>
+                        <div class="col-12 col-md-4">
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="telefono_alumno" placeholder="Telefono" required>
+                                <label for="telefono_alumno">Telefono</label>
+                            </div>
+                            <br>
                         </div>
-                        <br>
-                    </div>
 
-                    <div class="col-12 col-md-4">
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email_alumno" placeholder="Correo Electronico" required>
-                            <label for="email_alumno">Correo Electronico</label>
+                        <div class="col-12 col-md-4">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email_alumno" placeholder="Correo Electronico" required>
+                                <label for="email_alumno">Correo Electronico</label>
+                            </div>
+                            <br>
                         </div>
-                        <br>
-                    </div>
 
-                    <div class="col-6 col-md-2">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Foto</label>
+                        <div class="col-6 col-md-2">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Foto</label>
+                            </div>
+                            <br>
                         </div>
-                        <br>
-                    </div>
 
-                    <div class="col-6 col-md-2">
-                        <div class="form-group">
-                            <input type="number" class="form-control" id="edad_alumno" placeholder="Edad" required>
-                            <label for="edad_alumno">Edad</label>
+                        <div class="col-6 col-md-2">
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="edad_alumno" placeholder="Edad" required>
+                                <label for="edad_alumno">Edad</label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -225,6 +218,7 @@
             <br>
             <br>
             <h4 class="text-center">Metodo de pago</h4>
+            <br>
             <div class="row">
                 <div class="col-12 col-md-3">
                     <div class="select-card" :class="{'active': solicitud.metodo_de_pago == 'efectivo'}" @click="solicitud.metodo_de_pago = 'efectivo'">
@@ -243,23 +237,25 @@
                 </div>
 
                 <div class="col-12 col-md-3">
-                    <div class="select-card disabled" :class="{'active': solicitud.metodo_de_pago == 'tarjeta'}" title="Disponible proximamente">
+                    <div class="select-card" :class="{'active': solicitud.metodo_de_pago == 'tarjeta'}">
                         <h4>Tarjeta de Credito</h4>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit..</p>
                     </div>
+                    <br>
                 </div>
 
                 <div class="col-12 col-md-3">
-                    <div class="select-card disabled" :class="{'active': solicitud.metodo_de_pago == 'paypal'}" title="Disponible proximamente">
+                    <div class="select-card" :class="{'active': solicitud.metodo_de_pago == 'paypal'}">
                         <h4>PayPal</h4>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit..</p>
                     </div>
+                    <br>
                 </div>
             </div>
         </div>
     </main>
 
-    <br><br>
+    <br>
 
     {{> footer }}
 </div>

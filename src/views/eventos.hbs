@@ -8,16 +8,24 @@
             <br>
 
             <div class="row">
-                <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-4" v-for="evento in eventos">
+                <div class="col-12 col-md-6" v-for="evento in eventos">
                     <div class="evento">
-                        <header>
-                            <h3 class="text-center" v-text="evento.nombre"></h3>
-                        </header>
-                        <div class="body" :style="{backgroundImage: 'url(' + evento.imagen + ')'}">
+                        <div class="fecha" v-html="fecha(evento.fecha)">
 
                         </div>
+                        <div class="row">
+                            <div class="col-12 foto" :style="{backgroundImage: 'url(' + evento.imagen + ')'}">
+                            </div>
+
+                            <div class="col-12 desc">
+                                <h3 class="text-center" v-text="evento.nombre"></h3>
+                                <br>
+
+                                <p v-text="evento.descripcion"></p>
+                                
+                            </div>
+                        </div>
                     </div>
-                    <br>
                 </div>
             </div>
             <br>
@@ -30,7 +38,6 @@
             </div>
         </div>
     </main>
-    <br><br>
 
     {{> footer }}
 </div>
@@ -43,6 +50,53 @@
             noticias: [],
             datos: {},
             session: {}
+        },
+        methods: {
+            fecha(fecha){
+                let mes = ''
+                switch(fecha.substr(5, 2)){
+                    case '01':
+                        mes = 'ENE'
+                        break;
+                    case '02':
+                        mes = 'FEB'
+                        break;
+                    case '03':
+                        mes = 'MAR'
+                        break;
+                    case '04':
+                        mes = 'ABR'
+                        break;
+                    case '05':
+                        mes = 'MAY'
+                        break;
+                    case '06':
+                        mes = 'JUN'
+                        break;
+                    case '07':
+                        mes = 'JUL'
+                        break;
+                    case '08':
+                        mes = 'AGO'
+                        break;
+                    case '09':
+                        mes = 'SEP'
+                        break;
+                    case '10':
+                        mes = 'OCT'
+                        break;
+                    case '11':
+                        mes = 'NOV'
+                        break;
+                    case '12':
+                        mes = 'DIC'
+                        break;
+
+                }
+                return `
+                        <h2>${fecha.substr(8, 2)}</h2>
+                        <h4>${mes}</h4>`
+            }
         },
         mounted(){
             axios.get('/API/eventos')

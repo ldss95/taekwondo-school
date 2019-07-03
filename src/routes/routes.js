@@ -33,10 +33,7 @@ router.get('/perfil', (req, res) => {
     res.render('perfil')
 })
 
-router.get('/admin', (req, res) => {
-    res.render('admin')
-})
-
+router.use('/admin', require('./admin'))
 router.use('/API', require('./api'))
 
 //En caso de no existir la ruta

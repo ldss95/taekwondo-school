@@ -12,6 +12,7 @@ Modelo.home = (callback) => {
             slides = rows
             let query = `
             SELECT
+                cu.id,
                 cu.descripcion,
                 cu.imagen,
                 cu.nombre,
